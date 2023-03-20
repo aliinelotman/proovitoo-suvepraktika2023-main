@@ -13,8 +13,8 @@
   </thead>
   <tbody>
     <tr *ngFor="let book of books.content | paginate: {
-                                                  itemsPerPage: 5,
-                                                  currentPage: p }"
+                                                  itemsPerPage: 10,
+                                                  currentPage: p}"
                                                   [routerLink]="['/books', book.id]">
       <th scope="row">
         {{book.title}}
@@ -35,6 +35,7 @@
   </tbody>
 </table>
 <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
 
 
 

@@ -16,6 +16,7 @@ export class CheckoutListComponent implements OnInit {
   checkouts$!: Observable<Page<Checkout>>;
   checkouts: any = [];
   sortingDirection: 'asc' | 'desc' | '' = "";
+  p: number = 1; //pagination 
 
   constructor(
     private checkoutService: CheckoutService,

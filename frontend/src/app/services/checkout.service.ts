@@ -26,7 +26,7 @@ export class CheckoutService {
   }
 
   getCheckout(checkoutId: string): Observable<Checkout> {
-    const url = this.baseUrl + '/geCheckout';
+    const url = this.baseUrl + '/getCheckout';
     const params = new HttpParams().set('checkoutId', checkoutId);
     return this.http.get<Checkout>(url, {params});
   }

@@ -24,8 +24,9 @@ export class BooksListComponent implements OnInit {
   books: any = [];
   sortingDirection: 'asc' | 'desc' | '' = "";
   public isDisabled: boolean = false; //pointer cursor
-  p: number = 1;
-  
+  p: number = 1; //pagination
+  //TODO: fix pagination input data
+
 
 
 

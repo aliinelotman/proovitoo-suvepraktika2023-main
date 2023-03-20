@@ -16,7 +16,6 @@ export class BookDetailComponent implements OnInit {
   book: any = [];
 
 
-
   constructor(
     private route: ActivatedRoute,
     private bookService: BookService,
@@ -28,7 +27,7 @@ export class BookDetailComponent implements OnInit {
     this.book$ = this.route.params
       .pipe(map(params => params['id']))
       .pipe(switchMap(id => this.bookService.getBook(id)))
-      console.log(this.book)
+      
   }
 
 
