@@ -1,0 +1,33 @@
+
+<h1>All Checkouts</h1>
+<table class="table table-striped" *ngIf="(checkouts$ | async) as checkouts">
+  <thead>
+    <tr>
+      <th scope="col" (click)="sort('borrowerFirstName')">Borrower's First Name</th>
+      <th scope="col" (click)="sort('borrowerLastName')">Borrower's Last Name</th>
+      <th scope="col" (click)="sort('borrowedBook')">Book Borrowed</th>
+      <th scope="col" (click)="sort('borrowedBook')">Date Borrowed</th>
+      <th scope="col" (click)="sort('borrowedBook')">Due Date</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let checkout of checkouts.content" [routerLink]="['/checkout', checkout.id]">
+      <th scope="row">
+        {{checkout.borrowerFirstName}}
+      </th>
+      <td>
+        {{checkout.borrowerLastName}}
+      </td>
+      <td>
+        {{checkout.borrowedBook.title}}
+      </td>
+      <td>
+        {{checkout.checkedOutDate}}
+      </td>
+      <td>
+        {{checkout.dueDate}}
+      </td>
+    </tr>
+  </tbody>
+</table>

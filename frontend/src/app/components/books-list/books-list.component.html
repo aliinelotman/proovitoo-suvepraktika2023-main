@@ -1,0 +1,40 @@
+
+
+
+<table class="table table-striped" *ngIf="(books$ | async) as books">
+  <thead>
+    <tr>
+      <th scope="col" (click)="sort('title')">Title</th>
+      <th scope="col" (click)="sort('author')">Author</th>
+      <th scope="col" (click)="sort('genre')">Genre</th>
+      <th scope="col" (click)="sort('year')">Year</th>
+      <th scope="col" (click)="sort('status')">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of books.content | paginate: {
+                                                  itemsPerPage: 5,
+                                                  currentPage: p }"
+                                                  [routerLink]="['/books', book.id]">
+      <th scope="row">
+        {{book.title}}
+      </th>
+      <td>
+        {{book.author}}
+      </td>
+      <td>
+        {{book.genre}}
+      </td>
+      <td>
+        {{book.year}}
+      </td>
+      <td>
+        {{book.status}}
+      </td>
+    </tr>
+  </tbody>
+</table>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+
+
