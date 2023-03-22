@@ -1,9 +1,10 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { BookService } from '../../services/book.service';
-import { Observable } from 'rxjs';
+import { filter, Observable } from 'rxjs';
 import { Page } from '../../models/page';
 import { Book } from '../../models/book';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Title } from '@angular/platform-browser';
 
 
 
@@ -25,44 +26,26 @@ export class BooksListComponent implements OnInit {
   sortingDirection: 'asc' | 'desc' | '' = "";
   public isDisabled: boolean = false; //pointer cursor
   p: number = 1; //pagination
-  //TODO: fix pagination input data
+
 
 
 
 
   constructor(
     private bookService: BookService,
-    private http: HttpClient,
   ) {
   }
 
 
   ngOnInit(): void {
     // TODO this observable should emit books taking into consideration pagination, sorting and filtering options.
-    this.books$ = this.bookService.getBooks({});
+
+    this.books$ = this.bookService.getBooks({ pageIndex:0,pageSize:999,sort:'genre',direction:'asc'});
 
 
   }
 
-  private getBooks() {
-    this.http.get<any>("http://localhost:8080/getBooks").subscribe(res =>
-    this.books = res);
 
-  }
-
-
-  sort(key: string){
-   const newSortingDirection = this.sortingDirection === ""
-    ?"asc"
-    : this.sortingDirection === "asc"
-      ?"desc"
-      : "";
-    this.sortingDirection = newSortingDirection;
-    this.books$=this.bookService.getBooks({
-      direction:newSortingDirection,
-      sort:key
-    })
-  }
 
 
 
