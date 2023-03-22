@@ -49,6 +49,15 @@ export class BookDetailComponent implements OnInit {
       })
 }
 
+remove(book: Book){
+  let id = book.id;
+  this.bookService.deleteBook(id)
+    .subscribe(res => {
+      console.log(res)
+    })
+//EI TÖÖTA: 500 internal error
+
+}
 
 
 }
