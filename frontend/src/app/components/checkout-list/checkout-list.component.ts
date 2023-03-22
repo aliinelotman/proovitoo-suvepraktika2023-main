@@ -15,37 +15,19 @@ export class CheckoutListComponent implements OnInit {
 
   checkouts$!: Observable<Page<Checkout>>;
   checkouts: any = [];
-  sortingDirection: 'asc' | 'desc' | '' = "";
-  p: number = 1; //pagination 
+  p: number = 1; //pagination
 
   constructor(
     private checkoutService: CheckoutService,
-    private http: HttpClient,
   ) {
   }
 
   ngOnInit(): void {
-    this.checkouts$ = this.checkoutService.getCheckouts({});
+    this.checkouts$ = this.checkoutService.getCheckouts({pageIndex:0,pageSize:999,sort:'checkedOutDate',direction:'desc'});
 
   }
 
-  private getCheckouts() {
-    this.http.get<any>("http://localhost:8080/checkouts").subscribe(res =>
-    this.checkouts = res);
 
-  }
 
-  sort(key: string){
-    const newSortingDirection = this.sortingDirection === ""
-     ?"asc"
-     : this.sortingDirection === "asc"
-       ?"desc"
-       : "";
-     this.sortingDirection = newSortingDirection;
-     this.checkouts$=this.checkoutService.getCheckouts({
-       direction:newSortingDirection,
-       sort:key
-     })
-   }
 
 }

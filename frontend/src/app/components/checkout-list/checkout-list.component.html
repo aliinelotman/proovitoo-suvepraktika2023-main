@@ -3,17 +3,17 @@
 <table class="table table-striped" *ngIf="(checkouts$ | async) as checkouts">
   <thead>
     <tr>
-      <th scope="col" (click)="sort('borrowerFirstName')">Borrower's First Name</th>
-      <th scope="col" (click)="sort('borrowerLastName')">Borrower's Last Name</th>
-      <th scope="col" (click)="sort('borrowedBook')">Book Borrowed</th>
-      <th scope="col" (click)="sort('borrowedBook')">Date Borrowed</th>
-      <th scope="col" (click)="sort('borrowedBook')">Due Date</th>
+      <th>Borrower's First Name</th>
+      <th>Borrower's Last Name</th>
+      <th>Book Borrowed</th>
+      <th>Date Borrowed</th>
+      <th>Due Date</th>
 
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let checkout of checkouts.content| paginate: {
-                                                      itemsPerPage: 10,
+                                                      itemsPerPage: 20,
                                                       currentPage: p}"
                                                       [routerLink]="['/checkout', checkout.id]">
       <th scope="row">

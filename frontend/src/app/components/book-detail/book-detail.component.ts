@@ -18,8 +18,8 @@ export class BookDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private bookService: BookService,
-    private http: HttpClient
+    private bookService: BookService
+
   ) {
   }
 
@@ -27,8 +27,27 @@ export class BookDetailComponent implements OnInit {
     this.book$ = this.route.params
       .pipe(map(params => params['id']))
       .pipe(switchMap(id => this.bookService.getBook(id)))
-      
+
   }
+
+  save(book: Book){
+    let body = {
+      id: book.id,
+      title: book.title,
+      author: book.author,
+      genre: book.genre,
+      year: book.year,
+      added: book.added,
+      checkOutCount: book.checkOutCount,
+      status: book.status,
+      dueDate: book.dueDate,
+      comment: book.comment
+    }
+    this.bookService.saveBook(body)
+      .subscribe(res => {
+        console.log(res)
+      })
+}
 
 
 
