@@ -1,10 +1,11 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { BookService } from '../../services/book.service';
-import { filter, Observable } from 'rxjs';
+import { BehaviorSubject, filter, Observable } from 'rxjs';
 import { Page } from '../../models/page';
 import { Book } from '../../models/book';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
+
 
 
 
@@ -24,8 +25,8 @@ export class BooksListComponent implements OnInit {
   books$!: Observable<Page<Book>>;
   books: any = [];
   sortingDirection: 'asc' | 'desc' | '' = "";
-  public isDisabled: boolean = false; //pointer cursor
   p: number = 1; //pagination
+  searchInput = "";
 
 
 
@@ -39,13 +40,19 @@ export class BooksListComponent implements OnInit {
 
   ngOnInit(): void {
     // TODO this observable should emit books taking into consideration pagination, sorting and filtering options.
-
-    this.books$ = this.bookService.getBooks({ pageIndex:0,pageSize:999,sort:'genre',direction:'asc'});
+    // Implementing table of books view using backend api endpoint /getBooks, support for paging and sorting
+    this.books$ = this.bookService.getBooks({ pageIndex:0,pageSize:999,sort:'genre',direction:'asc'})
+    //this.books$.pipe(filter(status => status == BookStatus))
 
 
   }
 
+searchBooks(){
+  console.log(this.searchInput)
 
+
+
+}
 
 
 

@@ -23,6 +23,7 @@ export class CheckoutListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+     // Implementing table of checkouts view using backend api endpoint /getCheckouts, support for paging and sorting
     this.checkouts$ = this.checkoutService.getCheckouts({pageIndex:0,pageSize:999,sort:'checkedOutDate',direction:'desc'});
 
   }

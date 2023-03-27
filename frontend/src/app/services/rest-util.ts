@@ -15,6 +15,9 @@ export class RestUtil {
     if (sort != null) {
       params = params.set('sort', sort + ',' + direction ?? '');
     }
+    if (status != null) {
+      params = params.set('sort', sort + ',' + direction ?? '');
+    }
     return params;
   }
 }

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,8 +11,8 @@ import { BooksListComponent } from './components/books-list/books-list.component
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CheckoutListComponent } from './components/checkout-list/checkout-list.component';
-import { ClickableClickModule } from 'angular-clickable-click';
 import { MycheckoutComponent } from './components/mycheckout/mycheckout.component'
+
 
 @NgModule({
   declarations: [
@@ -24,12 +25,12 @@ import { MycheckoutComponent } from './components/mycheckout/mycheckout.componen
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     NgxPaginationModule, //From: https://github.com/michaelbromley/ngx-pagination
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ClickableClickModule, //From: https://github.com/DanielKucal/angular-clickable-click
   ],
   providers: [],
   bootstrap: [AppComponent]

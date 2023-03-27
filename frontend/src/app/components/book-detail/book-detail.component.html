@@ -1,5 +1,5 @@
 
-
+<!-- Implementing individual book view -->
 
 <div class="container mat-elevation-z4" *ngIf="book$ | async; let book">
   <mat-card>
@@ -16,7 +16,9 @@
          </mat-list>
          </div>
 
-         <button (click)="remove(book)"> DELETE </button>
+          <button *ngIf="book.status === 'AVAILABLE'" (click)="changeStatus(book)">CHECK OUT BOOK</button>
+         <button *ngIf="book.status === 'BORROWED'" (click)="changeStatus(book)">RETURN BOOK </button>
+         <button (click)="remove(book)" routerLink="/books"> DELETE </button>
          <button (click)="save"> UPDATE </button>
     </mat-card-content>
 
