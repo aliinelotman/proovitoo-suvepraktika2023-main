@@ -1,9 +1,10 @@
 import { HttpParams } from '@angular/common/http';
+import { BookStatus } from '../models/book-status';
 import { PageRequest } from '../models/page';
 
 export class RestUtil {
   public static buildParamsFromPageRequest(filter: Partial<PageRequest>): HttpParams {
-    const {pageIndex, pageSize, sort, direction} = filter;
+    const {pageIndex, pageSize, sort, direction, status} = filter;
     // using let and reassigning params, because httpParams is immutable, so .set() returns new object.
     let params = new HttpParams();
     if (pageIndex != null) {
@@ -14,9 +15,8 @@ export class RestUtil {
     }
     if (sort != null) {
       params = params.set('sort', sort + ',' + direction ?? '');
-    }
-    if (status != null) {
-      params = params.set('sort', sort + ',' + direction ?? '');
+    }  if (status != null) {
+      params = params.set('status', Object(status));
     }
     return params;
   }

@@ -11,7 +11,10 @@ import { BooksListComponent } from './components/books-list/books-list.component
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CheckoutListComponent } from './components/checkout-list/checkout-list.component';
-import { MycheckoutComponent } from './components/mycheckout/mycheckout.component'
+import { MycheckoutComponent } from './components/mycheckout/mycheckout.component';
+import { SearchPipe } from './search.pipe'
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 
 @NgModule({
@@ -20,11 +23,13 @@ import { MycheckoutComponent } from './components/mycheckout/mycheckout.componen
     BooksListComponent,
     BookDetailComponent,
     CheckoutListComponent,
-    MycheckoutComponent
+    MycheckoutComponent,
+    SearchPipe
 
   ],
   imports: [
     BrowserModule,
+    Ng2SearchPipeModule,
     FormsModule,
     NgxPaginationModule, //From: https://github.com/michaelbromley/ngx-pagination
     HttpClientModule,

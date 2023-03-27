@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { BookService } from '../../services/book.service';
-import { BehaviorSubject, filter, Observable } from 'rxjs';
+import { BehaviorSubject, filter, Observable, Subscription } from 'rxjs';
+import { map, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { Page } from '../../models/page';
 import { Book } from '../../models/book';
 import { HttpClient, HttpParams } from '@angular/common/http';
@@ -8,17 +9,10 @@ import { Title } from '@angular/platform-browser';
 
 
 
-
 @Component({
   selector: 'app-books-list',
   templateUrl: './books-list.component.html',
-  styleUrls: ['./books-list.component.scss'],
-  template: `
-    <div (click)="isDisabled = true" [disabled]="isDisabled">
-    I am <b *ngIf="isDisabled">no longer</b> clickable
-    </div>
-  `
-
+  styleUrls: ['./books-list.component.scss']
 })
 export class BooksListComponent implements OnInit {
 
@@ -32,8 +26,9 @@ export class BooksListComponent implements OnInit {
 
 
 
+
   constructor(
-    private bookService: BookService,
+    private bookService: BookService
   ) {
   }
 
@@ -41,17 +36,14 @@ export class BooksListComponent implements OnInit {
   ngOnInit(): void {
     // TODO this observable should emit books taking into consideration pagination, sorting and filtering options.
     // Implementing table of books view using backend api endpoint /getBooks, support for paging and sorting
-    this.books$ = this.bookService.getBooks({ pageIndex:0,pageSize:999,sort:'genre',direction:'asc'})
-    //this.books$.pipe(filter(status => status == BookStatus))
+    this.books$ = this.bookService.getBooks({ pageIndex:0,pageSize:999,sort:'genre',direction:'asc'}); //KUIDAS BOOK STATUS FILTER TÖÖLE SAADA: status:this.books.status='AVAILABLE'
 
 
   }
 
-searchBooks(){
+searchBooks() {
   console.log(this.searchInput)
-
-
-
+  console.log(this.books.filter(this.searchInput))
 }
 
 

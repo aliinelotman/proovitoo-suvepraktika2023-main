@@ -28,7 +28,6 @@ export class BookDetailComponent implements OnInit {
     this.book$ = this.route.params
       .pipe(map(params => params['id']))
       .pipe(switchMap(id => this.bookService.getBook(id)))
-
   }
 
   //update book support
