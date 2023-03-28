@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./favorites-list.component.css']
 })
 export class FavoritesListComponent implements OnInit {
-favoriteBooks = []
+favoriteBooks: any = []
+
+
 
 ngOnInit(): void {
   this.favoriteBooks = JSON.parse(localStorage.getItem("favorites") || "[]");

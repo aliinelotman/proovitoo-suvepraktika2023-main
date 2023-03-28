@@ -1,7 +1,37 @@
-<p>favorites-list works!</p>
+<h1>My favorite books</h1>
 
-<pre>{{ favoriteBooks | json }}</pre>
-
-<div *ngFor="let favoriteBook of favoriteBooks">
-  <div>{{favoriteBook}}</div>
-</div>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Genre</th>
+      <th>Year</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      class="clickableRow"
+      *ngFor="
+      let favoriteBook of favoriteBooks"
+      [routerLink]="['/books', favoriteBook.id]"
+    >
+      <th scope="row">
+        {{ favoriteBook.title }}
+      </th>
+      <td>
+        {{ favoriteBook.author }}
+      </td>
+      <td>
+        {{ favoriteBook.genre }}
+      </td>
+      <td>
+        {{ favoriteBook.year }}
+      </td>
+      <td>
+        {{ favoriteBook.status }}
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -107,11 +107,12 @@ export class BookDetailComponent implements OnInit {
 
   //Saving favorite books for current user in localStorage
   favorite(book: Book): void{
-    const favoriteBooks = JSON.parse(localStorage.getItem("favorites") || "[]");
+    let favoriteBooks = JSON.parse(localStorage.getItem("favorites") || "[]");
     favoriteBooks.push(book);
     localStorage.setItem("favorites", JSON.stringify(favoriteBooks));
     console.log("favorites:", localStorage)
-  }
+    }
+  
 
 
 }

@@ -26,10 +26,9 @@ export class BooksListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // TODO this observable should emit books taking into consideration pagination, sorting and filtering options.
+    // TODO  book status filter mujale, Pageable ei lase siia teha (this observable should emit books taking into consideration pagination, sorting and filtering options.)
     // Implementing table of books view using backend api endpoint /getBooks, support for paging and sorting
-    this.books$ = this.bookService.getBooks({ pageIndex:0,pageSize:999,sort:'genre',direction:'asc'}); //TODO KUIDAS BOOK STATUS FILTER TÖÖLE SAADA: status:this.books.status='AVAILABLE'
-
+    this.books$ = this.bookService.getBooks({ pageIndex:0,pageSize:999,sort:'genre',direction:'asc'});
 
   }
 
