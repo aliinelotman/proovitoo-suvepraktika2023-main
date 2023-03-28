@@ -17,6 +17,7 @@ export class BookDetailComponent implements OnInit {
   book$!: Observable<Book>;
   book: any = [];
 
+
   modalRef: MdbModalRef<ModalComponent> | null = null;
 
   constructor(
@@ -96,8 +97,21 @@ export class BookDetailComponent implements OnInit {
     }
   }
 
+
+  //Confirmation dialogue modal
   openModal() {
     console.log('modal');
     this.modalRef = this.modalService.open(ModalComponent);
   }
+
+
+  //Saving favorite books for current user in localStorage
+  favorite(book: Book): void{
+    const favoriteBooks = JSON.parse(localStorage.getItem("favorites") || "[]");
+    favoriteBooks.push(book);
+    localStorage.setItem("favorites", JSON.stringify(favoriteBooks));
+    console.log("favorites:", localStorage)
+  }
+
+
 }

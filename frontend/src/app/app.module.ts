@@ -16,6 +16,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ModalComponent } from './modal/modal.component';
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 import { LateCheckoutsComponent } from './components/late-checkouts/late-checkouts.component';
+import { FavoritesListComponent } from './components/favorites-list/favorites-list.component';
 
 
 
@@ -27,7 +28,8 @@ import { LateCheckoutsComponent } from './components/late-checkouts/late-checkou
     CheckoutListComponent,
     MycheckoutComponent,
     ModalComponent,
-    LateCheckoutsComponent
+    LateCheckoutsComponent,
+    FavoritesListComponent
 
   ],
   imports: [
