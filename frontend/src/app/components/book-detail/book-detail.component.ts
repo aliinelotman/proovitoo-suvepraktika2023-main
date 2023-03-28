@@ -33,24 +33,7 @@ export class BookDetailComponent implements OnInit {
       .pipe(switchMap((id) => this.bookService.getBook(id)));
   }
 
-  //TODO EI TÖÖTA
-  save(book: Book) {
-    let body = {
-      id: book.id,
-      title: book.title,
-      author: book.author,
-      genre: book.genre,
-      year: book.year,
-      added: book.added,
-      checkOutCount: book.checkOutCount,
-      status: book.status,
-      dueDate: book.dueDate,
-      comment: book.comment,
-    };
-    this.bookService.saveBook(body).subscribe((res) => {
-      console.log(res);
-    });
-  }
+
 
   //delete book
   remove(book: Book) {
@@ -112,7 +95,7 @@ export class BookDetailComponent implements OnInit {
     localStorage.setItem("favorites", JSON.stringify(favoriteBooks));
     console.log("favorites:", localStorage)
     }
-  
+
 
 
 }

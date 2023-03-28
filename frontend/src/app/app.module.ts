@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +17,7 @@ import { ModalComponent } from './modal/modal.component';
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 import { LateCheckoutsComponent } from './components/late-checkouts/late-checkouts.component';
 import { FavoritesListComponent } from './components/favorites-list/favorites-list.component';
+import { AddBookComponent } from './components/add-book/add-book.component';
 
 
 
@@ -29,13 +30,15 @@ import { FavoritesListComponent } from './components/favorites-list/favorites-li
     MycheckoutComponent,
     ModalComponent,
     LateCheckoutsComponent,
-    FavoritesListComponent
+    FavoritesListComponent,
+    AddBookComponent
 
   ],
   imports: [
     BrowserModule,
     Ng2SearchPipeModule,
     FormsModule,
+    ReactiveFormsModule,
     NgxPaginationModule, //From: https://github.com/michaelbromley/ngx-pagination
     HttpClientModule,
     AppRoutingModule,
