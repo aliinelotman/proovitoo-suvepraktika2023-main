@@ -1,0 +1,50 @@
+
+
+<div class="container">
+<h1>Late Checkouts</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Borrower's First Name</th>
+      <th>Borrower's Last Name</th>
+      <th>Book Borrowed</th>
+      <th>Date Borrowed</th>
+      <th>Due Date</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container  *ngIf="(checkouts$ | async) as checkouts">
+      <ng-container class="clickableRow" *ngIf="checkouts.content.length > 0; else noResults">
+        <tr *ngFor="let checkout of checkouts.content | paginate: {
+                                                        itemsPerPage: 20,
+                                                        currentPage: p}">
+          <ng-container  *ngIf="!checkoutDatePassed(checkout)">
+            <th scope="row">
+              {{checkout.borrowerFirstName}}
+            </th>
+            <td>
+              {{checkout.borrowerLastName}}
+            </td>
+            <td>
+              {{checkout.borrowedBook.title}}
+            </td>
+            <td>
+              {{checkout.checkedOutDate}}
+            </td>
+            <td class="dueColumn">
+              {{checkout.dueDate}}
+            </td>
+          </ng-container>
+        </tr>
+      </ng-container>
+      <ng-template #noResults>
+        <tr>
+          <td colspan="5">No results found.</td>
+        </tr>
+      </ng-template>
+    </ng-container>
+  </tbody>
+</table>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

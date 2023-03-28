@@ -15,7 +15,7 @@ import { MycheckoutComponent } from './components/mycheckout/mycheckout.componen
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ModalComponent } from './modal/modal.component';
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
-import { LateCheckoutsComponent } from './late-checkouts/late-checkouts.component';
+import { LateCheckoutsComponent } from './components/late-checkouts/late-checkouts.component';
 
 
 

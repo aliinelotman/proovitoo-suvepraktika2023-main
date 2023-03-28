@@ -20,15 +20,10 @@ export class BooksListComponent implements OnInit {
   searchInput = "";
 
 
-
-
-
-
   constructor(
     private bookService: BookService
   ) {
   }
-
 
   ngOnInit(): void {
     // TODO this observable should emit books taking into consideration pagination, sorting and filtering options.
@@ -42,7 +37,6 @@ searchBooks() {
   console.log(this.searchInput)
   console.log(this.books.filter(this.searchInput))
 }
-
 
 
 }
