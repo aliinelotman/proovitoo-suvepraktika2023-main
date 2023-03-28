@@ -15,7 +15,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let checkout of checkouts.content| paginate: {
+    <tr class="clickableRow" *ngFor="let checkout of checkouts.content| paginate: {
                                                       itemsPerPage: 20,
                                                       currentPage: p}"
                                                       [routerLink]="['/checkout', checkout.id]">

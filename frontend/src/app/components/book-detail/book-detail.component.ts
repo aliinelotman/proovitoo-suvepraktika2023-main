@@ -4,21 +4,26 @@ import { Book } from '../../models/book';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { ModalComponent } from 'src/app/modal/modal.component';
 
 @Component({
   selector: 'app-book-detail',
   templateUrl: './book-detail.component.html',
-  styleUrls: ['./book-detail.component.scss']
+  styleUrls: ['./book-detail.component.scss'],
+  providers: [MdbModalService]
 })
 export class BookDetailComponent implements OnInit {
   book$!: Observable<Book>;
   book: any = [];
 
+  modalRef: MdbModalRef<ModalComponent> | null = null;
+
 
   constructor(
     private route: ActivatedRoute,
-    private bookService: BookService
+    private bookService: BookService,
+    private modalService: MdbModalService
 
   ) {
   }
@@ -97,10 +102,10 @@ remove(book: Book){
       }
   }
 
-  test(){
-    console.log("TEST")
+  openModal() {
+    console.log('modal')
+    this.modalRef = this.modalService.open(ModalComponent)
   }
-
 
 
 }

@@ -12,8 +12,10 @@ import { BookDetailComponent } from './components/book-detail/book-detail.compon
 import { HttpClientModule } from '@angular/common/http';
 import { CheckoutListComponent } from './components/checkout-list/checkout-list.component';
 import { MycheckoutComponent } from './components/mycheckout/mycheckout.component';
-import { SearchPipe } from './search.pipe'
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ModalComponent } from './modal/modal.component';
+import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
+import { LateCheckoutsComponent } from './late-checkouts/late-checkouts.component';
 
 
 
@@ -24,7 +26,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     BookDetailComponent,
     CheckoutListComponent,
     MycheckoutComponent,
-    SearchPipe
+    ModalComponent,
+    LateCheckoutsComponent
 
   ],
   imports: [
@@ -36,6 +39,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    MdbModalModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

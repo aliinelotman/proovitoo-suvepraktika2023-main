@@ -14,8 +14,8 @@
 
          </mat-list>
 
-         <button (click)="remove(checkout)" routerLink="/checkout"> DELETE </button>
-         <button (click)="save"> UPDATE </button>
+         <button class="btn btn-outline-danger" (click)="[remove(checkout), openModal()]" routerLink="/checkout"> Delete Checkout </button>
+         <button class="btn btn-outline-info" (click)="save"> Update Checkout </button>
          </div>
     </mat-card-content>
   </mat-card>

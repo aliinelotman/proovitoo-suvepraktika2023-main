@@ -2,23 +2,27 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
 import { CheckoutService } from 'src/app/services/checkout.service';
 import { Checkout } from 'src/app/models/checkout';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { ModalComponent } from 'src/app/modal/modal.component';
 
 @Component({
   selector: 'app-mycheckout',
   templateUrl: './mycheckout.component.html',
-  styleUrls: ['./mycheckout.component.scss']
+  styleUrls: ['./mycheckout.component.scss'],
+  providers: [MdbModalService]
 })
 export class MycheckoutComponent implements OnInit {
   checkout$!: Observable<Checkout>;
   checkout: any = [];
+  modalRef: MdbModalRef<ModalComponent> | null = null;
 
 
   constructor(
     private route: ActivatedRoute,
-    private checkoutService: CheckoutService
+    private checkoutService: CheckoutService,
+    private modalService: MdbModalService
   ) {
   }
 
@@ -54,5 +58,8 @@ export class MycheckoutComponent implements OnInit {
       })
   }
 
-  
+  openModal() {
+    this.modalRef = this.modalService.open(ModalComponent)
+  }
+
 }

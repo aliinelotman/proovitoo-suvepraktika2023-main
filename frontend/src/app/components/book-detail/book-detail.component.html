@@ -16,10 +16,10 @@
          </mat-list>
          </div>
 
-          <button *ngIf="book.status === 'AVAILABLE'" (click)="changeStatus(book)">CHECK OUT BOOK</button>
-         <button *ngIf="book.status === 'BORROWED'" (click)="changeStatus(book)">RETURN BOOK </button>
-         <button (click)="remove(book)" routerLink="/books"> DELETE </button>
-         <button (click)="save"> UPDATE </button>
+         <button class="btn btn-outline-success" *ngIf="book.status === 'AVAILABLE'" (click)="[changeStatus(book), openModal()]">Borrow Book</button>
+         <button class="btn btn-outline-primary"  *ngIf="book.status === 'BORROWED'" (click)="[changeStatus(book), openModal()]">Return Book </button>
+         <button class="btn btn-outline-danger" (click)="[remove(book), openModal()]" routerLink="/books"> Delete Book </button>
+         <button class="btn btn-outline-info" (click)="save"> Update Book </button>
     </mat-card-content>
 
   </mat-card>

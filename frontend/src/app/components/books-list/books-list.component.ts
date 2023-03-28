@@ -1,11 +1,8 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BookService } from '../../services/book.service';
-import { BehaviorSubject, filter, Observable, Subscription } from 'rxjs';
-import { map, debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { Page } from '../../models/page';
 import { Book } from '../../models/book';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { Title } from '@angular/platform-browser';
 
 
 
