@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BookService } from 'src/app/services/book.service';
 import { FormBuilder, ReactiveFormsModule, NgForm } from '@angular/forms';
+import { Book } from 'src/app/models/book';
 
 @Component({
   selector: 'app-add-book',
@@ -10,6 +11,7 @@ import { FormBuilder, ReactiveFormsModule, NgForm } from '@angular/forms';
 export class AddBookComponent {
   //books = Book[] = []
 
+
   addBookForm = this.formBuilder.group({
     title: '',
     author: '',
@@ -17,9 +19,9 @@ export class AddBookComponent {
 
   constructor(private formBuilder: FormBuilder) {}
 
-  //TODO EI TÖÖTA
+  //TODO EI TÖÖTA – aeg sai otsa
   save(addBookForm: NgForm) {
-    // const val = addBookForm.value;
+    const val = addBookForm.value;
     //const newBook = new Book(val.id, val.title, val.author, val.genre);
     // this bookService.saveBook(newBook).subscribe();
   }
