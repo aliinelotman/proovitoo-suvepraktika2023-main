@@ -1,25 +1,33 @@
-<p>add-book works!</p>
 
 <h1>Add new book</h1>
-<form [formGroup]="addBookForm">
-  <div class="form-group">
-    <label for="bookTitle">Book title</label>
-    <input type="text" class="form-control" id="bookTitle" placeholder="Enter title">
-  </div>
-  <div class="form-group">
-    <label for="bookAuthor">Password</label>
-    <input type="text" class="form-control" id="bookAuthor" placeholder="Enter author">
-  </div>
-    <button class="btn btn-outline-info" (click)="save()">
+<br />
+<br />
+<div class="container">
+  <form #addBookForm="ngForm">
+    <div class="form-group">
+      <label for="bookTitle">Book title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="bookTitle"
+        formControlName="bookTitle"
+        placeholder="Enter title"
+      />
+    </div>
+    <div class="form-group">
+      <label for="bookAuthor">Password</label>
+      <input
+        type="text"
+        class="form-control"
+        id="bookAuthor"
+        formControlName="bookAuthor"
+        placeholder="Enter author"
+      />
+    </div>
+    <br />
+    <br />
+    <button class="btn btn-outline-info" (click)="save(addBookForm)">
       Update Book
     </button>
-</form>
-
-
-
-
-
-
-
-
-
+  </form>
+</div>

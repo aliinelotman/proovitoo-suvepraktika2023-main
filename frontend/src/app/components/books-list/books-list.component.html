@@ -25,9 +25,9 @@
             | filter : searchInput
             | paginate
               : {
-                  itemsPerPage: 15,
-                  currentPage: p,
-                  totalItems: books.content.length
+                  itemsPerPage: pageLength,
+                  currentPage: pageIndex,
+                  totalItems: bookCount
                 }
         "
         [routerLink]="['/books', book.id]"
@@ -50,5 +50,5 @@
       </tr>
     </tbody>
   </table>
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  <pagination-controls (pageChange)="pageIndex = $event"></pagination-controls>
 </div>
