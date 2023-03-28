@@ -16,9 +16,10 @@
   <tbody>
     <ng-container  *ngIf="(checkouts$ | async) as checkouts">
       <ng-container class="clickableRow" *ngIf="checkouts.content.length > 0; else noResults">
-        <tr *ngFor="let checkout of checkouts.content | paginate: {
+        <tr class="clickableRow" *ngFor="let checkout of checkouts.content | paginate: {
                                                         itemsPerPage: 20,
-                                                        currentPage: p}">
+                                                        currentPage: p}, "
+                                                        [routerLink]="['/checkout', checkout.id]">
           <ng-container  *ngIf="!checkoutDatePassed(checkout)">
             <th scope="row">
               {{checkout.borrowerFirstName}}

@@ -1,23 +1,36 @@
-
-
-
-
-<div class="container mat-elevation-z4" *ngIf="checkout$ | async; let checkout">
-  <mat-card-header>Borrower: {{checkout.borrowerFirstName}} {{checkout.borrowerLastName}}</mat-card-header>
-  <div>Borrower: {{checkout.borrowerFirstName}} {{checkout.borrowerLastName}}</div>
-     <div>
-        <ul class="list-group">
-          <li class="list-group-item clickableRow" [routerLink]="['/books', checkout.borrowedBook.id]"> {{checkout.borrowedBook.title}} by {{checkout.borrowedBook.author}}</li>
-          <li class="list-group-item">Date of Checkout: {{checkout.checkedOutDate}}</li>
-          <li class="list-group-item">Due on: {{checkout.dueDate}}</li>
-          <li class="list-group-item">Returned on: {{checkout.returnedDate}}</li>
-        </ul>
-        <button class="btn btn-outline-danger" (click)="[remove(checkout), openModal()]" routerLink="/checkout"> Delete Checkout </button>
-        <button class="btn btn-outline-info" (click)="save"> Update Checkout </button>
-    </div>
+<div class="container" *ngIf="checkout$ | async; let checkout">
+  <br />
+  <br />
+  <h1>
+    Borrower: {{ checkout.borrowerFirstName }} {{ checkout.borrowerLastName }}
+  </h1>
+  <br />
+  <br />
+  <div>
+    <ul class="list-group">
+      <li
+        class="list-group-item clickableRow"
+        [routerLink]="['/books', checkout.borrowedBook.id]"
+      >
+        {{ checkout.borrowedBook.title }} by {{ checkout.borrowedBook.author }}
+      </li>
+      <li class="list-group-item">
+        Date of Checkout: {{ checkout.checkedOutDate }}
+      </li>
+      <li class="list-group-item">Due on: {{ checkout.dueDate }}</li>
+      <li class="list-group-item">Returned on: {{ checkout.returnedDate }}</li>
+    </ul>
+    <br />
+    <br />
+    <button
+      class="btn btn-outline-danger"
+      (click)="[remove(checkout), openModal()]"
+      routerLink="/checkout"
+    >
+      Delete Checkout
+    </button>
+    <button class="btn btn-outline-info" (click)="(save)">
+      Update Checkout
+    </button>
+  </div>
 </div>
-
-
-
-
-

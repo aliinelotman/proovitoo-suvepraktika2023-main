@@ -2,7 +2,11 @@
 
 <div class="container" *ngIf="book$ | async; let book">
   <div>
-    <div>TITLE: {{ book.title }}</div>
+    <br />
+    <br />
+    <h1>TITLE: {{ book.title }}</h1>
+    <br />
+    <br />
     <div>
       <div>
         <ul class="list-group">
@@ -12,6 +16,8 @@
           <li class="list-group-item">Added: {{ book.added }}</li>
           <li class="list-group-item">Status: {{ book.status }}</li>
         </ul>
+        <br />
+        <br />
         <button
           class="btn btn-outline-success"
           *ngIf="book.status === 'AVAILABLE'"
@@ -36,7 +42,7 @@
         <button class="btn btn-outline-info" (click)="(save)">
           Update Book
         </button>
-        <button class="btn btn-outline-info" (click)="(favorite(book))">
+        <button class="btn btn-outline-info" (click)="favorite(book)">
           Save Book as Favorite
         </button>
       </div>
