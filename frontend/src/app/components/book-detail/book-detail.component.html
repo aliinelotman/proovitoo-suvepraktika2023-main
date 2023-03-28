@@ -1,31 +1,42 @@
-
 <!-- Implementing individual book view -->
 
 <div class="container" *ngIf="book$ | async; let book">
   <div>
-    <div>TITLE: {{book.title}}</div>
+    <div>TITLE: {{ book.title }}</div>
     <div>
       <div>
         <ul class="list-group">
-          <li class="list-group-item">Author: {{book.author}}</li>
-          <li class="list-group-item">Genre: {{book.genre}}</li>
-          <li class="list-group-item">Published: {{book.year}}</li>
-          <li class="list-group-item">Added: {{book.added}}</li>
-          <li class="list-group-item">Status: {{book.status}}</li>
+          <li class="list-group-item">Author: {{ book.author }}</li>
+          <li class="list-group-item">Genre: {{ book.genre }}</li>
+          <li class="list-group-item">Published: {{ book.year }}</li>
+          <li class="list-group-item">Added: {{ book.added }}</li>
+          <li class="list-group-item">Status: {{ book.status }}</li>
         </ul>
-        <button class="btn btn-outline-success" *ngIf="book.status === 'AVAILABLE'" (click)="[changeStatus(book), openModal()]">Borrow Book</button>
-        <button class="btn btn-outline-primary"  *ngIf="book.status === 'BORROWED'" (click)="[changeStatus(book), openModal()]">Return Book </button>
-        <button class="btn btn-outline-danger" (click)="[remove(book), openModal()]" routerLink="/books"> Delete Book </button>
-        <button class="btn btn-outline-info" (click)="save"> Update Book </button>
-        </div>
+        <button
+          class="btn btn-outline-success"
+          *ngIf="book.status === 'AVAILABLE'"
+          (click)="[changeStatus(book), openModal()]"
+        >
+          Borrow Book
+        </button>
+        <button
+          class="btn btn-outline-primary"
+          *ngIf="book.status === 'BORROWED'"
+          (click)="[changeStatus(book), openModal()]"
+        >
+          Return Book
+        </button>
+        <button
+          class="btn btn-outline-danger"
+          (click)="[remove(book), openModal()]"
+          routerLink="/books"
+        >
+          Delete Book
+        </button>
+        <button class="btn btn-outline-info" (click)="(save)">
+          Update Book
+        </button>
+      </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-

@@ -19,5 +19,59 @@ public class CheckOutDTO {
 
     private LocalDate returnedDate;
 
+    public UUID getId() {
+        return id;
+    }
 
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getBorrowerFirstName() {
+        return borrowerFirstName;
+    }
+
+    public void setBorrowerFirstName(String borrowerFirstName) {
+        this.borrowerFirstName = borrowerFirstName;
+    }
+
+    public String getBorrowerLastName() {
+        return borrowerLastName;
+    }
+
+    public void setBorrowerLastName(String borrowerLastName) {
+        this.borrowerLastName = borrowerLastName;
+    }
+
+    public BookDTO getBorrowedBook() {
+        return borrowedBook;
+    }
+
+    public void setBorrowedBook(BookDTO borrowedBook) {
+        this.borrowedBook = borrowedBook;
+    }
+
+    public LocalDate getCheckedOutDate() {
+        return checkedOutDate;
+    }
+
+    public void setCheckedOutDate(LocalDate checkedOutDate) {
+        this.checkedOutDate = checkedOutDate;
+    }
+
+    public LocalDate getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(LocalDate dueDate) {
+        this.dueDate = dueDate;
+    }
+
+    public LocalDate getReturnedDate() {
+        return returnedDate;
+    }
+
+    public void setReturnedDate(LocalDate returnedDate) {
+        this.returnedDate = returnedDate;
+    }
 }
